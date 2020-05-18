@@ -3,14 +3,14 @@ package virtual_pet;
 import java.util.Scanner;
 
 public class VirtualPetApplication {
-    static Scanner scanner = new Scanner(System.in);
+     static Scanner scanner = new Scanner(System.in);
     static VirtualPet virtualPet = new VirtualPet();
 
     public static void main(String[] args) {
         gameLoop (scanner);
 
     }
-    public static void gameLoop(scanner){
+    public static void gameLoop(Scanner scanner){
         while(virtualPet.getHunger() > 0 && virtualPet.getThirst() > 0) {
             giveUserOptions(scanner);
         }
@@ -22,6 +22,7 @@ public class VirtualPetApplication {
         int hunger = virtualPet.getHunger();
         int thirst = virtualPet.getThirst();
         int happiness = virtualPet.getHappiness();
+        int energy = virtualPet.getEnergy();
 
 
         if(happiness >= 20) {
@@ -57,9 +58,23 @@ public class VirtualPetApplication {
             default:
                 virtualPet.doNothing();
         }
+        virtualPet.tick();
+        revealAttributes();
+
 
     }
+    public static void revealAttributes() {
+        int hunger = virtualPet.getHunger();
+        int thirst = virtualPet.getThirst();
+        int happiness = virtualPet.getHappiness();
+        int energy = virtualPet.getEnergy();
 
+        System.out.println("Hunger is " + hunger);
+        System.out.println("Thirst is " + thirst);
+        System.out.println("Happiness is " + happiness);
+        System.out.println("Energy is " + energy);
+        System.out.println("");
+    }
 
 
 }

@@ -18,12 +18,26 @@ public class VirtualPet {
     int getEnergy() {
         return energy;
     }
+    void feedCat() {
+        hunger = hunger - 4;
+    }
+    void waterCat() {
+        thirst = thirst - 4;
+    }
+    void playWithCat() {
+        happiness = happiness + 3;
+    }
+    void putCatToBed() {
+        energy = energy + 3;
+    }
+    void doNothing() {
 
-}
-
-    void tick(){
-        // Will need to replace the voids with something else. They need to return something!
-        // Void does not return anything.
+    }
+    void tick() {
+        hunger = hunger + 1;
+        thirst = thirst + 1;
+        happiness = happiness - 1;
+        energy = energy - 1;
     }
 
 }
