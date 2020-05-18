@@ -3,35 +3,34 @@ package virtual_pet;
 import java.util.Scanner;
 
 public class VirtualPetApplication {
-     static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     static VirtualPet virtualPet = new VirtualPet();
 
     public static void main(String[] args) {
-        gameLoop (scanner);
+        gameLoop(scanner);
 
     }
-    public static void gameLoop(Scanner scanner){
-        while(virtualPet.getHunger() < 20 && virtualPet.getThirst() < 20 &&
+
+    public static void gameLoop(Scanner scanner) {
+        while (virtualPet.getHunger() < 20 && virtualPet.getThirst() < 20 &&
                 virtualPet.getHappiness() < 20 && virtualPet.getHappiness() > 0 &&
                 virtualPet.getEnergy() > 0) {
             giveUserOptions(scanner);
         }
         gameOver();
-
-
     }
+
     public static void gameOver() {
         int hunger = virtualPet.getHunger();
         int thirst = virtualPet.getThirst();
         int happiness = virtualPet.getHappiness();
         int energy = virtualPet.getEnergy();
 
-
-        if(happiness >= 20) {
+        if (happiness >= 20) {
             System.out.println("You have made Martin very happy! You win!");
         } else if (hunger >= 20) {
             System.out.println("Martin was hungry and ran away. You lose!");
-        } else if (thirst >=20) {
+        } else if (thirst >= 20) {
             System.out.println("Martin was thirsty and ran away. You lose!");
         } else if (happiness <= 0) {
             System.out.println("Martin was unhappy and ran away. You lose!");
@@ -39,7 +38,8 @@ public class VirtualPetApplication {
             System.out.println("Martin was very tired and ran away. You lose!");
         }
     }
-    public static void giveUserOptions (Scanner scanner)  {
+
+    public static void giveUserOptions(Scanner scanner) {
         System.out.println("What do you want to do?");
         System.out.println("1. Feed Martin");
         System.out.println("2. Water Martin");
@@ -66,9 +66,8 @@ public class VirtualPetApplication {
         }
         virtualPet.tick();
         revealAttributes();
-
-
     }
+
     public static void revealAttributes() {
         int hunger = virtualPet.getHunger();
         int thirst = virtualPet.getThirst();
@@ -82,7 +81,5 @@ public class VirtualPetApplication {
         System.out.println("Energy is " + energy);
         System.out.println("");
     }
-
-
 }
 
