@@ -11,7 +11,9 @@ public class VirtualPetApplication {
 
     }
     public static void gameLoop(Scanner scanner){
-        while(virtualPet.getHunger() > 0 && virtualPet.getThirst() > 0) {
+        while(virtualPet.getHunger() < 20 && virtualPet.getThirst() < 20 &&
+                virtualPet.getHappiness() < 20 && virtualPet.getHappiness() > 0 &&
+                virtualPet.getEnergy() > 0) {
             giveUserOptions(scanner);
         }
         gameOver();
@@ -31,6 +33,10 @@ public class VirtualPetApplication {
             System.out.println("Martin was hungry and ran away. You lose!");
         } else if (thirst >=20) {
             System.out.println("Martin was thirsty and ran away. You lose!");
+        } else if (happiness <= 0) {
+            System.out.println("Martin was unhappy and ran away. You lose!");
+        } else if (energy <= 0) {
+            System.out.println("Martin was very tired and ran away. You lose!");
         }
     }
     public static void giveUserOptions (Scanner scanner)  {
@@ -69,6 +75,7 @@ public class VirtualPetApplication {
         int happiness = virtualPet.getHappiness();
         int energy = virtualPet.getEnergy();
 
+        System.out.println("Martin the Cat");
         System.out.println("Hunger is " + hunger);
         System.out.println("Thirst is " + thirst);
         System.out.println("Happiness is " + happiness);
